@@ -7,8 +7,13 @@ For this assignment, you'll create some initial plans for your project.
 ## Submission Instructions
 
 ### Wireframes
+![Main Landing](/main_landing)
+![User Landing](/user_landing)
+![Admin Landing](/admin_landing)
 
-(Include at least 3 wireframes here, adding images or files to your the repository as necessary. Format them as a bulleted/unordered list with links to the files.)
+* [Main Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/main_landing.jpg)
+* [User Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/user_landing.jpg)
+* [Admin Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/admin_landing.jpg)
 
 ### Project Tracker
 
