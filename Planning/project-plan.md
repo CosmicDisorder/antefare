@@ -7,10 +7,6 @@ For this assignment, you'll create some initial plans for your project.
 ## Submission Instructions
 
 ### Wireframes
-![Main Landing](/main_landing)
-![User Landing](/user_landing)
-![Admin Landing](/admin_landing)
-
 * [Main Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/main_landing.jpg)
 * [User Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/user_landing.jpg)
 * [Admin Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/admin_landing.jpg)
