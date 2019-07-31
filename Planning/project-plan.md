@@ -7,7 +7,8 @@ For this assignment, you'll create some initial plans for your project.
 ## Submission Instructions
 
 ### Wireframes
-* [Main Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/main_landing.jpg)
+I will use draw.io to update each wireframe before I begin working on a UI element/related user story. I will also hand draw each additional view as stories are created then digitize before starting them.
+* [Main Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/main_landing.png)
 * [User Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/user_landing.jpg)
 * [Admin Landing](https://github.com/CosmicDisorder/antefare/blob/master/Planning/admin_landing.jpg)
 
