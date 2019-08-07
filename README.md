@@ -2,7 +2,7 @@
 A Spring Boot Application being built in accordance with LaunchCode's "Liftoff" objectives.
 
 ### Overview
-AnteFare provides beverage and food menu information for local restaurants that aims to be current by using information from various repositories and a restaurants' point of sales system.
+AnteFare provides beverage and food menu information for local restaurants that aims to be current by compiling information from various sources and a restaurants' point of sales system.
 
 ### Planned Features
 * Persistent user/admin accounts and appropriate authentication
