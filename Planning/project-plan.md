@@ -1,6 +1,9 @@
-### Wireframes
+# Wireframes
+### Main Landing
 ![Main Landing](main_landing.png)
+### User Landing
 ![User Landing](user_landing.png)
+### Admin Landing
 ![Admin Landing](admin_landing.png)
 
 ### Project Tracker
