@@ -2,15 +2,19 @@ package com.github.cosmicdisorder;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
+@RequestMapping("antefare")
 public class AntefareController {
 
-    @GetMapping("/antefare")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name);
+    @RequestMapping("")
+    public String index(Model model) {
+
+        String[] locations = {"St. Louis", "Chicago", "Indianapolis"};
+        model.addAttribute("locations", locations);
+
         return "antefare/index";
     }
 }
