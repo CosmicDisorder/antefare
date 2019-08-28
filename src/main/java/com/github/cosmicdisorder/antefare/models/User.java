@@ -1,10 +1,11 @@
 package com.github.cosmicdisorder.antefare.models;
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.validation.constraints.Email;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class User {
     private int id;
 
     @NotNull
-    @Size(min=3, max=25);
+    @Size(min=3, max=25)
     private String name;
 
     @Email
