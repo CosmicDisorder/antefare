@@ -17,7 +17,8 @@
 
 <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">AnteFare</a>
+        <a th:if="${location == null}" class="navbar-brand" href="/antefare">AnteFare</a>
+        <a th:if="${location != null}" class="navbar-brand" href="/antefare">AnteFare: <span th:text="${location}"></span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,25 +31,25 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/admin/login">Admin Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/antefare/register">Register</a>
                 </li>
             </ul>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Select Location
                     </a>
                     <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                         <ul>
-                            <li th:each="location : ${locations}">
-                                <a class="dropdown-item" href="/antefare/${location}" th:text="${location}"></a>
+                            <li th:each="location, iterStat : ${locations}">
+                                <a class="dropdown-item" th:href="@{/antefare/index(locationId=${iterStat.index})}" th:text="${location}"></a>
                             </li>
                         </ul>
                     </div>
