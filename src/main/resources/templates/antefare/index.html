@@ -4,7 +4,7 @@
 
 <body class="container body-content">
 <nav th:replace="fragments :: navigation"></nav>
-
+<p th:if="${activeUser} != null">Welcome back, <span th:text="$(activeUser)"></span></p>
 <p>To find your ideal dining experience, select a location and we'll take it from there!</p>
 
 </body>
