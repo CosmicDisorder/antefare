@@ -36,24 +36,26 @@ public class UserController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String userLogin(Model model, @ModelAttribute("inputEmail") String inputEmail,
-            @ModelAttribute("inputPassword") String inputPassword, Errors errors) {
+    public String userLogin(Model model, @ModelAttribute User user, Errors errors) {//@ModelAttribute("inputEmail") String inputEmail, @ModelAttribute("inputPassword") String inputPassword, Errors errors) {
+        //   model.addAttribute("title", inputEmail+inputPassword);
+
         if (errors.hasErrors()) {
             return "user/login";
         }
+        /*
         ArrayList<User> Users = new ArrayList<User>();
         for(User user : userDao.findAll()) {
             Users.add(user);
             if(inputEmail == user.getEmail()) {
                 User activeUser = user;
-                if (inputPassword == activeUser.getPassword()) {
-                    model.addAttribute("activeUser", activeUser.getName());
-                    return "antefare/index";
-                }
             }
         }
 
-
+        if (inputPassword == activeUser.getPassword()) {
+            model.addAttribute("activeUser", activeUser.getName());
+            return "antefare/index";
+        }
+         */
         return "user/login";
     }
 }
