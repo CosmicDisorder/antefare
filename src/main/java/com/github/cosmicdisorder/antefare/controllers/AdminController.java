@@ -1,4 +1,4 @@
-package com.github.cosmicdisorder;
+package com.github.cosmicdisorder.antefare.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

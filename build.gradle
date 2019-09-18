@@ -1,40 +1,47 @@
+/*
+    Starters completed in order:
+    helloRest, helloGradle, HandlingFormSubmission,
+ */
+
+
 buildscript {
-    ext {
-        springBootVersion = '1.5.2.RELEASE'
-    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
     }
 }
-
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-
-jar {
-    baseName = 'antefare'
-    version = '0.0.1-SNAPSHOT'
-}
-
-sourceCompatibility = 1.8
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
 
 repositories {
     mavenCentral()
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('mysql:mysql-connector-java')
-    runtime('org.springframework.boot:spring-boot-devtools')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
     testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-
-bootRun {
-    addResources = true
+    testCompile('org.springframework.security:spring-security-test')
+    compile ("joda-time:joda-time:2.2")
+    compile ("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile ("org.springframework.boot:spring-boot-starter-data-jpa")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    compile('mysql:mysql-connector-java')
+    testCompile ("junit:junit:4.12")
+    compile ("com.h2database:h2")
 }

@@ -1,10 +1,13 @@
-package com.github.cosmicdisorder;
+package com.github.cosmicdisorder.antefare.controllers;
 
+import com.github.cosmicdisorder.antefare.models.User;
+import com.github.cosmicdisorder.antefare.validator.UserValidator;
+import com.github.cosmicdisorder.antefare.service.SecurityService;
+import com.github.cosmicdisorder.antefare.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -31,10 +34,24 @@ public class AntefareController {
 
         return "antefare/index";
     }
+    @GetMapping(value = "/register")
+    public String registration(Model model) {
+        model.addAttribute("userForm", new User());
+        return "register";
+    }
 
-    @RequestMapping(value = "register")
-    public String register(Model model){
+    @PostMapping(value = "/register")
+    public String registration(@ModelAttribute("userForm") User userForm,
+                               BindingResult bindingResult, Model model) {
 
-        return "antefare/register";
+        userValidator.validate(userForm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
+
+        userService.save(userForm);
+        securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
+        return "redirect:/welcome";
     }
 }
