@@ -1,6 +1,8 @@
 package com.github.cosmicdisorder.antefare.controllers;
 
 import com.github.cosmicdisorder.antefare.models.User;
+import com.github.cosmicdisorder.antefare.service.SecurityServiceImpl;
+import com.github.cosmicdisorder.antefare.service.UserServiceImpl;
 import com.github.cosmicdisorder.antefare.validator.UserValidator;
 import com.github.cosmicdisorder.antefare.service.SecurityService;
 import com.github.cosmicdisorder.antefare.service.UserService;
@@ -44,13 +46,17 @@ public class AntefareController {
     public String registration(@ModelAttribute("userForm") User userForm,
                                BindingResult bindingResult, Model model) {
 
+        UserValidator userValidator = new UserValidator();
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "register";
         }
 
+        UserServiceImpl userService = new UserServiceImpl();
         userService.save(userForm);
+
+        SecurityServiceImpl securityService = new SecurityServiceImpl();
         securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
         return "redirect:/welcome";
     }
